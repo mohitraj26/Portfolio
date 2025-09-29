@@ -2,8 +2,6 @@ import { TabsDemo } from "@/components/TabsDemo";
 import { WobbleCardDemo } from "@/components/WobbleCardDemo";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
-import { main } from "framer-motion/client"
-import { Contact } from "lucide-react";
 
 
 

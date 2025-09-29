@@ -27,10 +27,10 @@ export function ContactForm() {
 
       <div className="shadow-input mx-auto w-full max-w-3xl rounded-2xl bg-white p-4 dark:bg-black md:p-8 ">
         <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
-          Let's Get in Touch
+          Let&apos;s Get in Touch
         </h2>
         <p className="mt-2 max-w-sm text-sm text-neutral-600 dark:text-neutral-300">
-          Have a project in mind or just want to say hi? I'd love to hear from
+          Have a project in mind or just want to say hi? I&apos;d love to hear from
           you.
         </p>
 

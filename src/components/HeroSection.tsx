@@ -1,4 +1,3 @@
-import { SparklesPreview } from "./SparklesPreview"
 
 const HeroSection = () => {
   return (

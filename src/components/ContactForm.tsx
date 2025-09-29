@@ -25,7 +25,7 @@ export function ContactForm() {
         </p>
       </div>
 
-      <div className="shadow-input mx-auto w-full max-w-5xl rounded-2xl bg-white p-4 dark:bg-black md:p-8">
+      <div className="shadow-input mx-auto w-full max-w-3xl rounded-2xl bg-white p-4 dark:bg-black md:p-8 ">
         <h2 className="text-xl font-bold text-neutral-800 dark:text-neutral-200">
           Let's Get in Touch
         </h2>

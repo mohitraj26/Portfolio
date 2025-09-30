@@ -16,10 +16,6 @@ export default function Home() {
       <Navbar />
 
       <main className="h-full bg-black/[0.96] text-white">
-        {/* Hero Section (contains the "View My Work" button) */}
-        <section id="hero">
-          <TypewriterEffectSmoothDemo />
-        </section>
 
         {/* About Section */}
         <section id="about" className="pt-20">

@@ -17,15 +17,15 @@ function NavbarDemo() {
   const navItems = [
     {
       name: "About",
-      link: "#features",
+      link: "#about",
     },
     {
       name: "Projects",
-      link: "#pricing",
+      link: "#projects",
     },
     {
       name: "Achievements",
-      link: "#contact",
+      link: "#about",
     },
     {
       name: "Contact",
@@ -36,19 +36,38 @@ function NavbarDemo() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className=" w-full">
+    <div className="w-full">
       <Navbar className="fixed top-5">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems
+            items={navItems.map((item, idx) => ({
+              ...item,
+              element: (
+                <a
+                  key={`desktop-link-${idx}`}
+                  href={item.link}
+                  className="relative text-neutral-600 dark:text-neutral-300 hover:text-primary"
+                >
+                  {item.name}
+                </a>
+              ),
+            }))}
+          />
           <div className="flex items-center gap-4">
-                  <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2">
-          <Download/>Resume
-        </span>
-      </button>
+            {/* Desktop Button */}
+            <a href="/resume.pdf" download>
+              <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] 
+                  bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full 
+                  bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl gap-2">
+                  <Download />
+                  Resume
+                </span>
+              </button>
+            </a>
           </div>
         </NavBody>
 
@@ -71,29 +90,28 @@ function NavbarDemo() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                className="relative text-neutral-600 dark:text-neutral-300 hover:text-primary"
               >
-                <span className="block">{item.name}</span>
+                {item.name}
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
+              {/* Mobile Button */}
+              <a
+                href="/resume.pdf"
+                download
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
               >
-                Resume
-              </NavbarButton>
+                <NavbarButton variant="primary" className="w-full">
+                  Resume
+                </NavbarButton>
+              </a>
             </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-
-
-      {/* Navbar */}
     </div>
   );
 }
-
 
 export default NavbarDemo;

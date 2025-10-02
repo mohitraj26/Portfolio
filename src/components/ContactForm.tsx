@@ -9,10 +9,30 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted with:", { name, email, message });
-  };
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Message sent successfully!");
+      setName(""); setEmail(""); setMessage("");
+    } else {
+      alert(data.error || "Something went wrong");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send message");
+  }
+};
+
 
   return (
     <div className="mt-45 px-4 sm:px-6 lg:px-8">
